@@ -2,14 +2,16 @@ import Lottie from "lottie-react";
 import login from "../../../../public/login.json";
 
 
-const Signin = () => {
+const Signup = () => {
 
-    const handleSignIn = event => {
+    const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        console.log(name, photo, email, password);
     }
 
     return (
@@ -19,8 +21,20 @@ const Signin = () => {
                     <Lottie animationData={login} loop={true} />
                 </div>
                 <div className="card flex-shrink-0 w-1/2 max-w-sm shadow-2xl bg-base-100">
-                    <form onSubmit={handleSignIn}>
+                    <form onSubmit={handleSignUp}>
                         <div className="card-body">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input type="text" placeholder="name" name="name" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">PhotoURL</span>
+                                </label>
+                                <input type="text" placeholder="photoURL" name="photo" className="input input-bordered" />
+                            </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -37,7 +51,7 @@ const Signin = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Sign in" />
+                                <input className="btn btn-primary" type="submit" value="Sign up" />
                             </div>
                         </div>
                     </form>
@@ -47,4 +61,4 @@ const Signin = () => {
     );
 };
 
-export default Signin;
+export default Signup;
