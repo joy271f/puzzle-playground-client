@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../../../public/logo.png'
+import person from '../../../assets/person.jpg'
 
 const Navbar = () => {
 
@@ -10,7 +11,7 @@ const Navbar = () => {
         <li><NavLink to='/my-toy'>My Toy</NavLink></li>
         <li><NavLink to='/add-toy'>Add A Toy</NavLink></li>
         <li><NavLink to='/blog'>Blog</NavLink></li>
-</>
+    </>
 
     return (
         <div className="navbar h-28 bg-gray-100">
@@ -33,6 +34,10 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end ms-auto md:mr-4">
+
+                <div className="tooltip tooltip-bottom" data-tip="Joy Chandra Das">
+                    <img src={person} alt="" className="w-12 mr-4" />
+                </div>
                 <Link className="md:mr-4">Sign in</Link>
                 <Link><button className="btn btn-primary">Sign up</button></Link>
             </div>

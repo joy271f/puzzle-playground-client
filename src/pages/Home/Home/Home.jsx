@@ -1,4 +1,4 @@
-import Banner from "./Banner/Banner";
+import Banner from "../Banner/Banner";
 
 const Home = () => {
     return (
@@ -7,4 +7,5 @@ const Home = () => {
         </div>
     );
 };
+
 export default Home;
