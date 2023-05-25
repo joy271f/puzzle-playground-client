@@ -34,7 +34,7 @@ const Signin = () => {
     }
 
     return (
-        <div className="hero min-h-screen">
+        <div className="hero">
             <div className="hero-content flex-col lg:flex-row">
                 <div className="text-center lg:text-left md:w-1/2">
                     <Lottie animationData={login} loop={true} />
@@ -58,13 +58,13 @@ const Signin = () => {
                                 </label>
                             </div>
                             <p className="text-red-600">{error}</p>
+                            <div className="form-control mt-6">
+                                <input className="btn btn-primary" type="submit" value="Sign in" />
+                            </div>
                             <div>
                                 <h2 className="text-center my-5">------- OR -------</h2>
                             </div>
                             <GoogleSignIn />
-                            <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Sign in" />
-                            </div>
                             <span className='mx-auto'>Are You New User? Please <Link to='/sign-up' className="text-red-500">Sign Up</Link></span>
                         </div>
                     </form>

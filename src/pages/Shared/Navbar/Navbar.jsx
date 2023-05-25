@@ -19,16 +19,16 @@ const Navbar = () => {
 
     const navItems = <>
         <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/all-toy'>All Toys</NavLink></li>
+        <li><NavLink to='/all-toys'>All Toys</NavLink></li>
         {user ? <>
-            <li><NavLink to='/my-toy'>My Toys</NavLink></li>
+            <li><NavLink to='/my-toys'>My Toys</NavLink></li>
             <li><NavLink to='/add-toy'>Add A Toy</NavLink></li>
         </> : ''}
         <li><NavLink to='/blog'>Blog</NavLink></li>
     </>
 
     return (
-        <div className="navbar h-24 sticky top-0 bg-base-100 z-10">
+        <div className="navbar h-24 sticky top-0 bg-base-200 z-10">
             <div>
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -52,7 +52,7 @@ const Navbar = () => {
                 {user?.email ?
                     <>
                         <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
-                            <img src={user.photoURL} alt="" className="w-12 mr-4 rounded-full" />
+                            <img src={user.photoURL} alt="" className="w-10 mr-4 rounded-full h-10" />
                         </div>
                         <button onClick={handleSignOut} className="btn btn-primary">Sign Out</button>
                     </> 
