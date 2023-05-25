@@ -16,13 +16,11 @@ const Signin = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
 
 
         signInUser(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                console.log(user);
                 if (user) {
                     toast.success("Sign in Successful")
                     setError(null)

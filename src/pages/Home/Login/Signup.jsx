@@ -18,12 +18,10 @@ const SignUp = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo, email, password);
 
         signUpUser(email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            console.log(user);
             if(user){
                 toast.success("Sign Up Successful")
                 updateUserProfile(name, photo)
