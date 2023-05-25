@@ -49,7 +49,8 @@ const PhotoGallary = () => {
 
     return (
         <div>
-            <h1 className="  my-12 md:my-24 text-2xl md:text-5xl font-semibold gradient-text">Masterpiece Puzzle Gallery</h1>
+            <h1 className="mt-12 md:mt-36 text-2xl md:text-4xl font-bold gradient-text">Masterpiece Puzzle Gallery</h1> 
+            <hr className="border-1 rounded-full border-orange-500 mb-8 md:mb-12 w-60 mx-auto" />
             <Gallery photos={photos} />;
         </div>
     );
