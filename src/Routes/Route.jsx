@@ -3,7 +3,7 @@ import Main from "../Layout/Main";
 import AllToy from "../pages/AllToy/AllToy";
 import Home from "../pages/Home/Home/Home";
 import Signin from "../pages/Home/Login/Signin";
-import Signup from "../pages/Home/Login/Signup";
+import SignUp from "../pages/Home/Login/Signup";
 
 
 const router = createBrowserRouter([
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'sign-up',
-                element: <Signup />
+                element: <SignUp />
             }
         ],
     },

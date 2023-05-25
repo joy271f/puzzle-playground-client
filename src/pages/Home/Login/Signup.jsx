@@ -1,9 +1,15 @@
 import Lottie from "lottie-react";
 import login from "../../../../public/login.json";
 import GoogleSignIn from "./GoogleSignIn";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 
-const Signup = () => {
+const SignUp = () => {
+    const {signUpUser, updateUserProfile} = useContext(AuthContext)
+    const [error, setError] = useState("");
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -13,6 +19,23 @@ const Signup = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, photo, email, password);
+
+        signUpUser(email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user);
+            if(user){
+                toast.success("Sign Up Successful")
+                updateUserProfile(name, photo)
+                setError(null)
+                form.reset();
+            }
+          })
+          .catch((error) => {
+            const errorMessage = error.message;
+            setError(errorMessage)
+          });
+
     }
 
     return (
@@ -51,6 +74,7 @@ const Signup = () => {
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
+                            <p className="text-red-600">{error}</p>
                             <div>
                                 <h2 className="text-center my-5">------- OR -------</h2>
                             </div>
@@ -58,6 +82,7 @@ const Signup = () => {
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Sign up" />
                             </div>
+                            <span className='mx-auto'>Already Have An Account ? <Link to='/sign-in' className="text-red-500">Sign in</Link></span>
                         </div>
                     </form>
                 </div>
@@ -66,4 +91,4 @@ const Signup = () => {
     );
 };
 
-export default Signup;
+export default SignUp;
