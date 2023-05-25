@@ -8,8 +8,9 @@ import { Link } from "react-router-dom";
 
 
 const SignUp = () => {
-    const {signUpUser, updateUserProfile} = useContext(AuthContext)
+    const { signUpUser, updateUserProfile } = useContext(AuthContext)
     const [error, setError] = useState("");
+
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -19,20 +20,27 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        signUpUser(email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            if(user){
-                toast.success("Sign Up Successful")
-                updateUserProfile(name, photo)
-                setError(null)
-                form.reset();
-            }
-          })
-          .catch((error) => {
-            const errorMessage = error.message;
-            setError(errorMessage)
-          });
+        if (!/(?=.*?[A-Z])/.test(password)) {
+            setError("At least one upper case")
+            return;
+        }
+
+        if (name, email, password, photo) {
+            signUpUser(email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    if (user) {
+                        toast.success("Sign Up Successful")
+                        updateUserProfile(name, photo)
+                        setError(null)
+                        form.reset();
+                    }
+                })
+                .catch((error) => {
+                    const errorMessage = error.message;
+                    setError(errorMessage)
+                });
+        }
 
     }
 
