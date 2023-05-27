@@ -5,10 +5,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Main = () => {
     return (
-        <div>
+        <div >
             <Navbar />
             <Outlet />
-            <ToastContainer theme="colored" autoClose={2000}/>
+            <ToastContainer theme="colored" autoClose={2000} />
         </div>
     );
 };
