@@ -3,6 +3,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { useState } from "react";
 import { useEffect } from "react";
 import ShowMyToys from "./ShowMyToys";
+import { toast } from "react-toastify";
 
 
 const MyToys = () => {
@@ -14,6 +15,24 @@ const MyToys = () => {
             .then(res => res.json())
             .then(data => setMyToys(data))
     }, [])
+
+
+    const handleDelete = id => {
+        const process = confirm('Are You Sure to Delete?')
+        if(process){
+            fetch(`http://localhost:5000/toys/${id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.deletedCount){
+                    toast.success("Toy Deleted")
+                    const remaining = myToys.filter(myToy => myToy._id !== id);
+                    setMyToys(remaining)
+                }
+            })
+        }
+    }
 
     return (
         <div className='max-w-[95vw] mx-auto'>
@@ -41,6 +60,7 @@ const MyToys = () => {
                                 myToys.map(myToy => <ShowMyToys
                                     key={myToy._id}
                                     myToy={myToy}
+                                    handleDelete={handleDelete}
                                 ></ShowMyToys>)
                             }
                         </tbody>
