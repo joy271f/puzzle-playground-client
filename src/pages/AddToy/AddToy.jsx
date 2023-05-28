@@ -1,8 +1,24 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const AddToy = () => {
     const { user } = useContext(AuthContext);
+
+    const puzzles = [
+        {
+            id: 1,
+            name: 'Monopoly'
+        },
+        {
+            id: 2,
+            name: 'Chess'
+        },
+        {
+            id: 3,
+            name: 'Cube'
+        },
+    ]
 
     const handleAddToyForm = event => {
         event.preventDefault();
@@ -17,28 +33,42 @@ const AddToy = () => {
         const productQuantity = form.productQuantity.value;
         const productDescription = form.productDescription.value;
 
-        const formData = { productName, productPhoto, sellerName, sellerEmail, productCategory, productPrice, productRating, productQuantity, productDescription };
-        console.log(formData);
+        const toyData = {
+            product_name: productName,
+            photo: productPhoto,
+            name: sellerName,
+            email: sellerEmail,
+            category: productCategory,
+            price: productPrice,
+            rating: productRating,
+            quantity: productQuantity,
+            description: productDescription,
+        };
+        // console.log(toyData);
+
+
+        fetch('http://localhost:5000/toy', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(toyData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    toast.success("Toy Added Successfully")
+                    form.reset();
+                }
+            })
     }
 
     return (
         <div className="bg-gray-300">
             <div className="max-w-[60vw] mx-auto">
-                <form onSubmit={handleAddToyForm} className="p-4 shadow-2xl">
-                    <h2 className="text-primary text-center text-4xl font-bold mb-4">Add A Toy</h2>
+                <form onSubmit={handleAddToyForm} className="p-8 shadow-2xl">
+                    <h2 className="text-primary text-center text-4xl font-bold my-6">Add A Toy</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Product Name</span>
-                            </label>
-                            <input type="text" name="productName" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Product PhotoURL</span>
-                            </label>
-                            <input type="text" name="productPhoto" className="input input-bordered" required />
-                        </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Seller Name</span>
@@ -53,13 +83,24 @@ const AddToy = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
+                                <span className="label-text">Product Name</span>
+                            </label>
+                            <input type="text" name="productName" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Product PhotoURL</span>
+                            </label>
+                            <input type="text" name="productPhoto" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
                                 <span className="label-text">Sub-Category</span>
                             </label>
                             <select name="productCategory" className="input input-bordered" required>
-                                <option value=""></option>
-                                <option value="monopoly">Monopoly</option>
-                                <option value="chess">Chess</option>
-                                <option value="cube">Rubik's Cube</option>
+                                {
+                                    puzzles.map(puzzle => <option key={puzzle.id} value={puzzle.name}>{puzzle.name}</option>)
+                                }
                             </select>
                         </div>
                         <div className="form-control">
@@ -85,7 +126,7 @@ const AddToy = () => {
                         <label className="label">
                             <span className="label-text">Detail description</span>
                         </label>
-                        <input type="text" name="productDescription" className="input input-bordered h-24" required />
+                        <textarea type="text" name="productDescription" className="input input-bordered py-2 h-24" required />
                     </div>
                     <div className="form-control">
                         <input type="submit" className="btn btn-primary btn-block mt-4" value="Add Toy" />
