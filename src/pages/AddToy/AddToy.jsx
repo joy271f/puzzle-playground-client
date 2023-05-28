@@ -98,6 +98,7 @@ const AddToy = () => {
                                 <span className="label-text">Sub-Category</span>
                             </label>
                             <select name="productCategory" className="input input-bordered" required>
+                                <option></option>
                                 {
                                     puzzles.map(puzzle => <option key={puzzle.id} value={puzzle.name}>{puzzle.name}</option>)
                                 }

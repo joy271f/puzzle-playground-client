@@ -7,7 +7,7 @@ const SingleToy = () => {
     const { product_name, photo, name, category, price, rating, quantity, description } = loadToyData;
     return (
         <div className="font-serif">
-            <h1 className="text-5xl gradient-text mt-12 font-bold">Welcome to our Toy Store</h1>
+            <h1 className="text-4xl text-center text-primary mt-8 font-bold">Toy Details</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[80vw] mx-auto mt-12">
                 <div>
                     <img src={photo} className="w-3/4 mx-auto h-96 rounded-xl" alt="" />

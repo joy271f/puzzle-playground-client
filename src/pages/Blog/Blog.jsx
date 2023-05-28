@@ -2,6 +2,7 @@
 const Blog = () => {
     return (
         <div>
+            <h1 className="gradient-text text-5xl font-bold mt-8">Blog Page</h1>
             <div className="collapse max-w-4xl mx-auto mt-12">
                 <input type="checkbox" className="peer" />
                 <div className="collapse-title bg-sky-700 text-primary-content peer-checked:bg-sky-700 peer-checked:text-sky-700-content">
