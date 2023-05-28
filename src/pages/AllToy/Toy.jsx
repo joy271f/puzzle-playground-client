@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 
 const Toy = ({allToy}) => {
-    const {name, category, quantity, product_name, price} = allToy;
+    const {_id, name, category, quantity, product_name, price} = allToy;
     return (
         <tbody>
             <tr>
@@ -11,18 +12,17 @@ const Toy = ({allToy}) => {
                         </div>
                     </div>
                 </td>
-                <td>
+                <td className="font-serif">
                     {product_name}
                     <br />
-                    <span className="badge badge-ghost badge-sm">{category}</span>
+                    <span className="badge badge-warning badge-sm">{category}</span>
                 </td>
                 <td>{price}</td>
                 <th>
-                    <button className="btn btn-ghost btn-xs">{quantity}</button>
+                    <button className="btn btn-ghost btn-xs ml-12">{quantity}</button>
                 </th>
                 <th>
-                    <button className="btn btn-ghost btn-xs">View Details</button>
-                    <button className="btn btn-ghost btn-xs">Delete</button>
+                    <Link to={`/single-toy/${_id}`}><button className="btn btn-success btn-xs">View Details</button></Link>
                 </th>
             </tr>
         </tbody>
