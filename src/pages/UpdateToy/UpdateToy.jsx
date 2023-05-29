@@ -48,7 +48,7 @@ const UpdateToy = () => {
         // console.log(toyData);
 
 
-        fetch(`http://localhost:5000/toy/${_id}`, {
+        fetch(`http://localhost:5000/toys/${_id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -57,8 +57,9 @@ const UpdateToy = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.insertedId) {
-                    toast.success("Toy Added Successfully")
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    toast.success("Updated Toy Successfully")
                     form.reset();
                 }
             })
