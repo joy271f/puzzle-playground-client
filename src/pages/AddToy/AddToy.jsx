@@ -44,7 +44,6 @@ const AddToy = () => {
             quantity: productQuantity,
             description: productDescription,
         };
-        // console.log(toyData);
 
 
         fetch('http://localhost:5000/toy', {

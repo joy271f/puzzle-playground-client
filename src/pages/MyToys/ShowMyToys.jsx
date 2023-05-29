@@ -3,7 +3,7 @@ import '@smastrom/react-rating/style.css'
 import { Link } from 'react-router-dom';
 
 const ShowMyToys = ({ myToy, handleDelete }) => {
-    const { _id, name, category, quantity, product_name, price, description, email, photo, rating, status } = myToy;
+    const { _id, name, category, quantity, product_name, price, email, photo, rating} = myToy;
     return (
         <tr>
             <th>

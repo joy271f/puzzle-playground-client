@@ -34,32 +34,6 @@ const ShopCategory = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="card w-96 bg-base-100 shadow-xl">
-                            <figure><img src="https://i.ibb.co/VNBQ0qK/wallpaperflare-com-wallpaper-1.jpg" alt="Shoes" /></figure>
-                            <div className="card-body text-start">
-                                <h2 className="card-title">Title is comming</h2>
-                                <div className="flex">
-                                    <p className="">$1280</p>
-                                    <Rating style={{ maxWidth: 100 }} value={rating} onChange={setRating} />
-                                </div>
-                                <div>
-                                    <button className="mt-12 btn btn-primary btn-block">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="card w-96 bg-base-100 shadow-xl">
-                            <figure><img src="https://i.ibb.co/VNBQ0qK/wallpaperflare-com-wallpaper-1.jpg" alt="Shoes" /></figure>
-                            <div className="card-body text-start">
-                                <h2 className="card-title">Title is comming</h2>
-                                <div className="flex">
-                                    <p className="">$1280</p>
-                                    <Rating style={{ maxWidth: 100 }} value={rating} onChange={setRating} />
-                                </div>
-                                <div>
-                                    <button className="mt-12 btn btn-primary btn-block">View Details</button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </TabPanel>
                 <TabPanel>

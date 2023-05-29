@@ -2,10 +2,15 @@ import { useContext, useState } from "react";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { toast } from "react-toastify";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const GoogleSignIn = () => {
     const {googleSignIn, githubSignIn} = useContext(AuthContext);
     const [error, setError] = useState('')
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleGoogleSignIn = () => {
         googleSignIn()
@@ -14,6 +19,7 @@ const GoogleSignIn = () => {
                 if(user){
                     toast.success("Google Login Successful")
                     setError(null)
+                    navigate(from, { replace: true })
                 }
             })
             .catch(error => {
@@ -29,6 +35,7 @@ const GoogleSignIn = () => {
                 if(user){
                     toast.success("GitHub Login Successful")
                     setError(null)
+                    navigate(from, { replace: true })
                 }
             })
             .catch(error => {

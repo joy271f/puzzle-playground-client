@@ -4,13 +4,16 @@ import GoogleSignIn from "./GoogleSignIn";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
 const SignUp = () => {
     const { signUpUser, updateUserProfile } = useContext(AuthContext)
     const [error, setError] = useState("");
+    const navigate = useNavigate();
+    const location = useLocation();
 
+    const from = location.state?.from?.pathname || '/';
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -34,6 +37,7 @@ const SignUp = () => {
                         updateUserProfile(name, photo)
                         setError(null)
                         form.reset();
+                        navigate(from, { replace: true })
                     }
                 })
                 .catch((error) => {

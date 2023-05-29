@@ -34,27 +34,6 @@ const MyToys = () => {
         }
     }
 
-    // const handleToyUpdate = id => {
-    //     fetch(`http://localhost:5000/toys/${id}`,{
-    //         method: "PATCH",
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify({status: 'confirm'})
-    //     })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         if(data.modifiedCount > 0){
-    //             toast.success('Update Successfully')
-    //             const remaining = myToys.filter(myToy => myToy._id !== id);
-    //             const updatedToys = myToys.find(myToy => myToy._id === id);
-    //             updatedToys.status = 'confirm';
-    //             const newToys = [updatedToys, ...remaining];
-    //             setMyToys(newToys);
-    //         }
-    //     })
-    // }
-
     return (
         <div className='max-w-[95vw] mx-auto'>
             <img src='/public/banner2.jpg' alt="" className='object-cover h-[40vh] w-full rounded-xl mt-4' />
