@@ -11,7 +11,7 @@ const MyToys = () => {
     const [myToys, setMyToys] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys-email?email=${user?.email}`)
+        fetch(`http://localhost:5000/toys?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToys(data))
     }, [])
