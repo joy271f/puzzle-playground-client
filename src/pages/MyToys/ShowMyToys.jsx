@@ -1,8 +1,9 @@
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
+import { Link } from 'react-router-dom';
 
 const ShowMyToys = ({ myToy, handleDelete }) => {
-    const { _id, name, category, quantity, product_name, price, description, email, photo, rating } = myToy;
+    const { _id, name, category, quantity, product_name, price, description, email, photo, rating, status } = myToy;
     return (
         <tr>
             <th>
@@ -34,7 +35,7 @@ const ShowMyToys = ({ myToy, handleDelete }) => {
                 <span className="badge badge-ghost badge-sm">{email}</span>
             </td>
             <th>
-                <button className="btn btn-success btn-sm font-bold">Update</button>
+               <Link to={`/updateToy/${_id}`}><button className="btn btn-success btn-sm font-bold">Update</button></Link>
             </th>
         </tr>
     );
