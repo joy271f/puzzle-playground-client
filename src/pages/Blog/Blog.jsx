@@ -1,7 +1,9 @@
 
 const Blog = () => {
     return (
-        <div>
+        <div data-aos="fade-up"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="1000">
             <h1 className="gradient-text text-5xl font-bold mt-8">Blog Page</h1>
             <div className="collapse max-w-4xl mx-auto mt-12">
                 <input type="checkbox" className="peer" />

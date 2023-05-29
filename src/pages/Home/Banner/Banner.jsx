@@ -3,7 +3,7 @@ import banner from '../../../assets/banner.jpg';
 
 const Banner = () => {
     return (
-        <div>
+        <div >
             <div className="relative">
                 <img src={banner} className="w-full" />
                 <div className="absolute text-center bottom-0 w-full flex items-center top-5 bg-gradient-to-t from-black">
