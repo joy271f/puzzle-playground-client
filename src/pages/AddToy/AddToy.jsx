@@ -3,6 +3,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { toast } from "react-toastify";
 
 const AddToy = () => {
+    document.title = 'Add A Toy - Puzzle Playground'
     const { user } = useContext(AuthContext);
 
     const puzzles = [

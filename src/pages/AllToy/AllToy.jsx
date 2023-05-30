@@ -6,6 +6,7 @@ import Toy from './toy';
 
 
 const AllToy = () => {
+    document.title = 'All Toys - Puzzle Playground'
     const [allToys, setAllToys] = useState([])
 
     useEffect(() => {

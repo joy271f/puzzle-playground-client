@@ -3,6 +3,7 @@ import PhotoGallary from "../PhotoGallary/PhotoGallary";
 import ShopCategory from "../ShopCategory/ShopCategory";
 
 const Home = () => {
+    document.title = 'Home - Puzzle Playground';
     return (
         <div>
             <Banner />

@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const UpdateToy = () => {
     const loadToyData = useLoaderData();
     const { _id, name, category, quantity, product_name, price, description, email, photo, rating } = loadToyData;
-
+    document.title = `${category} Update - Puzzle Playground`
 
     const puzzles = [
         {

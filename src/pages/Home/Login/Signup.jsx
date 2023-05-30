@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
 const SignUp = () => {
+    document.title = 'Sign Up - Puzzle Playground'
     const { signUpUser, updateUserProfile } = useContext(AuthContext)
     const [error, setError] = useState("");
     const navigate = useNavigate();

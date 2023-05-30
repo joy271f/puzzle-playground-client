@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 const Error = () => {
+    document.title = 'Error Page - Puzzle Playground'
     return (
         <div className='text-center text-rose-600 mt-6'>
             <h1>Oops!</h1>

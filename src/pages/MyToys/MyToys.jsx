@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 
 
 const MyToys = () => {
+    document.title = 'My Toys - Puzzle Playground'
     const { user } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([]);
 
@@ -19,18 +20,18 @@ const MyToys = () => {
 
     const handleDelete = id => {
         const process = confirm('Are You Sure to Delete?')
-        if(process){
+        if (process) {
             fetch(`http://localhost:5000/toys/${id}`, {
                 method: 'DELETE'
             })
-            .then(res => res.json())
-            .then(data => {
-                if(data.deletedCount){
-                    toast.success("Toy Deleted")
-                    const remaining = myToys.filter(myToy => myToy._id !== id);
-                    setMyToys(remaining)
-                }
-            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        toast.success("Toy Deleted")
+                        const remaining = myToys.filter(myToy => myToy._id !== id);
+                        setMyToys(remaining)
+                    }
+                })
         }
     }
 
@@ -39,6 +40,10 @@ const MyToys = () => {
             <img src='/public/banner2.jpg' alt="" className='object-cover h-[40vh] w-full rounded-xl mt-4' />
             <div>
                 <h1 className='gradient-text mt-8 text-4xl font-bold'>My Toys</h1>
+                <div className="mb-4 flex justify-center">
+                    <button className="btn btn-sm btn-warning">ascending</button>
+                    <button className="btn btn-sm btn-warning ml-2">descending</button>
+                </div>
                 <div className="overflow-x-auto w-full mx-auto">
                     <table className="table w-full">
                         {/* head */}

@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
 const Signin = () => {
+    document.title = 'Sign in - Puzzle Playground'
     const { signInUser } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();

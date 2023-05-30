@@ -1,5 +1,6 @@
 
 const Blog = () => {
+    document.title = 'Blog - Puzzle Playground'
     return (
         <div data-aos="fade-up"
         data-aos-easing="ease-out-cubic"
