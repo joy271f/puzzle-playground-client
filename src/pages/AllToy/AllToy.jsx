@@ -8,6 +8,12 @@ import Toy from './toy';
 const AllToy = () => {
     document.title = 'All Toys - Puzzle Playground'
     const [allToys, setAllToys] = useState([])
+    const [showMore, setShowMore] = useState(3);
+
+    const handleShowMore = () => {
+        setShowMore((provValue) => provValue + allToys.length)
+
+    }
 
     useEffect(() => {
         fetch('http://localhost:5000/toys')
@@ -16,7 +22,7 @@ const AllToy = () => {
     }, [])
 
 
- 
+
     return (
         <div className='max-w-[95vw] mx-auto'>
             <img src={banner} alt="" className='object-cover h-[40vh] w-full rounded-xl mt-4' />
@@ -32,13 +38,13 @@ const AllToy = () => {
                         </tr>
                     </thead>
                     {
-                        allToys.map(allToy => <Toy
-                        key={allToy._id}
-                        allToy={allToy}
+                        allToys.slice(0, showMore).map(allToy => <Toy
+                            key={allToy._id}
+                            allToy={allToy}
                         ></Toy>)
                     }
-
                 </table>
+                <button onClick={handleShowMore} className='btn btn-primary ml-96'>Show More</button>
             </div>
         </div>
     );

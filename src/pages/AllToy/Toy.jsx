@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-const Toy = ({allToy}) => {
-    const {_id, name, category, quantity, product_name, price} = allToy;
+const Toy = ({ allToy }) => {
+    const { _id, name, category, quantity, product_name, price } = allToy;
     return (
         <tbody>
             <tr>
