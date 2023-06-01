@@ -2,7 +2,7 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const ShopCategory = () => {
@@ -13,9 +13,18 @@ const ShopCategory = () => {
         fetch(`http://localhost:5000/toys?category=${category}`)
             .then(res => res.json())
             .then(data => {
-                setToyData(data);
+                setToyData(data.slice(0, 3));
             })
     }
+
+    // inital category load
+    useEffect(() => {
+        fetch(`http://localhost:5000/toys?category=Monopoly`)
+            .then(res => res.json())
+            .then(data => {
+                setToyData(data.slice(0, 3));
+            })
+    }, [])
 
 
     return (
@@ -85,7 +94,7 @@ const ShopCategory = () => {
                                             <Rating style={{ maxWidth: 100 }} value={toy.rating} readOnly />
                                         </div>
                                         <div>
-                                            <Link to={`/single-toy/${toy._id}`}><button className="mt-12 btn btn-primary btn-block">View Details</button></Link>    
+                                            <Link to={`/single-toy/${toy._id}`}><button className="mt-12 btn btn-primary btn-block">View Details</button></Link>
                                         </div>
                                     </div>
                                 </div>
