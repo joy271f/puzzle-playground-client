@@ -29,7 +29,7 @@ const router = createBrowserRouter([
             {
                 path: 'single-toy/:id',
                 element: <PrivetRoute><SingleToy /></PrivetRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+                loader: ({params}) => fetch(`https://puzzle-playground-server.vercel.app/toys/${params.id}`)
             },
             {
                 path: 'sign-in',
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
             {
                 path: 'updateToy/:id',
                 element: <UpdateToy />,
-                loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+                loader: ({params}) => fetch(`https://puzzle-playground-server.vercel.app/toys/${params.id}`)
             },
 
 

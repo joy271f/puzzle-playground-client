@@ -10,7 +10,7 @@ const ShopCategory = () => {
 
 
     const handleTabCategory = category => {
-        fetch(`http://localhost:5000/toys?category=${category}`)
+        fetch(`https://puzzle-playground-server.vercel.app/toys?category=${category}`)
             .then(res => res.json())
             .then(data => {
                 setToyData(data.slice(0, 3));
@@ -19,7 +19,7 @@ const ShopCategory = () => {
 
     // inital category load
     useEffect(() => {
-        fetch(`http://localhost:5000/toys?category=Monopoly`)
+        fetch(`https://puzzle-playground-server.vercel.app/toys?category=Monopoly`)
             .then(res => res.json())
             .then(data => {
                 setToyData(data.slice(0, 3));

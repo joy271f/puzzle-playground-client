@@ -48,7 +48,7 @@ const UpdateToy = () => {
         // console.log(toyData);
 
 
-        fetch(`http://localhost:5000/toys/${_id}`, {
+        fetch(`https://puzzle-playground-server.vercel.app/toys/${_id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

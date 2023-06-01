@@ -12,7 +12,7 @@ const MyToys = () => {
     const [myToys, setMyToys] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys?email=${user?.email}`)
+        fetch(`https://puzzle-playground-server.vercel.app/toys?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToys(data))
     }, [])
@@ -21,7 +21,7 @@ const MyToys = () => {
     const handleDelete = id => {
         const process = confirm('Are You Sure to Delete?')
         if (process) {
-            fetch(`http://localhost:5000/toys/${id}`, {
+            fetch(`https://puzzle-playground-server.vercel.app/toys/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
