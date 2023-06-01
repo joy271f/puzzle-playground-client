@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ShowMyToys from "./ShowMyToys";
 import { toast } from "react-toastify";
+import banner2 from '../../../public/banner2.jpg'
 
 
 const MyToys = () => {
@@ -37,7 +38,7 @@ const MyToys = () => {
 
     return (
         <div className='max-w-[95vw] mx-auto'>
-            <img src='/public/banner2.jpg' alt="" className='object-cover h-[40vh] w-full rounded-xl mt-4' />
+            <img src={banner2} alt="" className='object-cover h-[40vh] w-full rounded-xl mt-4' />
             <div>
                 <h1 className='gradient-text mt-8 text-4xl font-bold'>My Toys</h1>
                 <div className="mb-4 flex justify-center">
