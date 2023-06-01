@@ -10,6 +10,7 @@ const AllToy = () => {
     const [allToys, setAllToys] = useState([])
     const [showMore, setShowMore] = useState(3);
 
+    // show more function
     const handleShowMore = () => {
         setShowMore((provValue) => provValue + allToys.length)
 
